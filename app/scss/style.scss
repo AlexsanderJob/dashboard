@@ -1,0 +1,128 @@
+@import "vars";
+@import "mixin";
+@import "libs";
+@import "fonts";
+@import "typography";
+
+* {
+	box-sizing: border-box;
+
+	&:after,
+	&:before {
+		box-sizing: border-box;
+	}
+
+	&::-webkit-media-controls-panel {
+		display: none !important;
+		-webkit-appearance: none;
+	}
+
+	&::--webkit-media-controls-play-button {
+		display: none !important;
+		-webkit-appearance: none;
+	}
+
+	&::-webkit-media-controls-start-playback-button {
+		display: none !important;
+		-webkit-appearance: none;
+	}
+
+	/* width */
+	&::-webkit-scrollbar {
+		width: 4px;
+		height: 4px;
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+		border-radius: 10px;
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: $violet;
+		border-radius: 10px;
+	}
+}
+
+html {
+	height: 100%;
+	min-height: 100%;
+	font-family: $font;
+	font-size: 14px;
+	line-height: 1.5;
+	font-weight: 400;
+	letter-spacing: 0;
+	color: $black;
+	background: #fafbff;
+
+	@media only screen and (max-width: $mobile-s) {
+		font-size: 10px;
+	}
+}
+
+body {
+	height: 100%;
+	min-height: 100%;
+	font-size: 100%;
+	min-width: 320px;
+}
+
+.main {
+	overflow: hidden;
+}
+
+.wr {
+	padding: 0 15px;
+	max-width: 1920px;
+	margin: 0 auto;
+	width: 100%;
+
+	&-panel {
+		background: $white;
+		box-shadow: 0 10px 60px rgba(226, 236, 249, 0.5);
+		width: 306px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		padding: 38px 28px 78px;
+		z-index: 5;
+		@media only screen and (max-width: $desktop-l) {
+			padding: 15px 20px 30px;
+			opacity: 0;
+			visibility: hidden;
+			transition: all .3s;
+			transform: translateX(-110%);
+
+			&.panel-show {
+				transform: translateX(0);
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		.panel-btn {
+			top: 20px;
+			left: 255px;
+			&:after {
+				transform: rotate(-135deg);
+				margin-left: -3px;
+			}
+		}
+	}
+
+	&-content {
+		padding: 0 0 0 306px;
+		width: 100%;
+		@media only screen and (max-width: $desktop-l) {
+			padding: 0;
+		}
+	}
+}
+
+
+
+
+// layout
+@import "layout/panel";
+@import "layout/content";

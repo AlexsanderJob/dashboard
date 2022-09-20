@@ -1,0 +1,215 @@
+@import "../vars";
+.panel {
+  height: 100%;
+  position: relative;
+  z-index: 5;
+
+  &-btn {
+    position: fixed;
+    display: none;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    top: 45px;
+    left: 10px;
+    &:after {
+      display: block;
+      content: "";
+      position: absolute;
+      transform: rotate(45deg);
+      border-top: 2px solid $grayDark;
+      border-right: 2px solid #9197B3;
+      width: 8px;
+      height: 8px;
+      top: 50%;
+      margin-top: -4px;
+      left: 50%;
+      margin-left: -5px;
+    }
+    @media only screen and (max-width: $desktop-l) {
+      display: block;
+    }
+    @media only screen and (max-width: $mobile) {
+      width: 20px;
+      height: 20px;
+      top: 23px;
+    }
+  }
+
+
+  .logo {
+    height: 39px;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    @media only screen and (max-width: $tablet) {
+      margin-bottom: 30px;
+    }
+    @media only screen and (max-width: $mobile) {
+      height: 30px;
+      padding-right: 40px;
+    }
+
+    &-link {
+      display: block;
+      height: 100%;
+
+      img {
+        max-height: 100%;
+        display: block;
+      }
+    }
+
+    &-version {
+      padding-left: 4px;
+      font-weight: 400;
+      font-size: 10px;
+      display: block;
+      padding-bottom: 5px;
+    }
+  }
+
+  .nav {
+    height: calc(100% - 174px);
+    overflow: auto;
+    margin: 0 -10px;
+    padding: 0 10px;
+    @media only screen and (max-width: $mobile) {
+      height: calc(100% - 144px);
+    }
+    &-list {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &-item {
+      border-radius: 8px;
+      width: 100%;
+      padding: 8px 0;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    &-link {
+      text-decoration: none;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 13px;
+      color: $grayDark;
+      font-size: 14px;
+      font-weight: 500;
+
+      &.n-arrow {
+        position: relative;
+        padding-right: 35px;
+
+        &:after {
+          display: block;
+          content: "";
+          position: absolute;
+          transform: rotate(45deg);
+          border-top: 2px solid $grayDark;
+          border-right: 2px solid #9197B3;
+          width: 8px;
+          height: 8px;
+          right: 14px;
+          top: 50%;
+          margin-top: -4px;
+        }
+      }
+
+      &:hover,
+      &.n-active {
+        background: $violet;
+        color: $white;
+        filter: brightness($violet) invert(1);
+
+        &:after {
+          border-color: $white;
+        }
+
+        .nav-icon {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      &.n-active {
+        background: $violet;
+        color: $white;
+      }
+    }
+
+    &-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-height: 100%;
+        display: block;
+      }
+    }
+
+    &-text {
+      padding-left: 16px;
+      display: block;
+    }
+  }
+
+  .user {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 40px;
+
+    &-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+    }
+
+    &-info {
+      width: calc(100% - 42px);
+      padding-left: 12px;
+    }
+
+    &-name {
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &-position {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      color: $grayLight;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+}
+
